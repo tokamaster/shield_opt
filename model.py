@@ -120,7 +120,7 @@ def shield(rad, bool, outer, m_batches, m_error, neutrons):
     #print(leakage_mean)
     #print(leakage_error)
 
-    dir = '/home/emiralle/shield_opt'
+    dir = '/home/emiralle/shield_git'
     for zippath in glob.iglob(os.path.join(dir, '*.h5')):
         os.remove(zippath)
 

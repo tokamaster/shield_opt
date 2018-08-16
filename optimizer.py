@@ -26,6 +26,8 @@ neutrons : sets number of neutrons for openmc
 leakage and error returned is in %
 
 go to model.py to change the materials (default : tungsten and water)
+
+BE CAREFUL with the directory in model.py
 """
 
 def optimize_with_size(outer, halton, m_batches, m_error, neutrons):
