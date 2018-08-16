@@ -90,7 +90,7 @@ def optimize_with_size(outer, halton, m_batches, m_error, neutrons):
     opt = leak.index(min(leak))
 
     print(bcolors.BOLD +'---------------')
-    print('ITERATION TERMINATED')
+    print('OPTIMIZATION FINISHED')
     print('BEST SOLUTION FOUND')
     print('////////////////////')
     print('R1:', points[opt][0], 'R2:', points[opt][1])
