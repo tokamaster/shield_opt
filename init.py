@@ -1,6 +1,6 @@
 from halton_seq import *
 from gp_tools import *
-from model import *
+from tokamak import *
 from tqdm import tqdm
 from pygmo import *
 import numpy as np
@@ -11,12 +11,12 @@ import multiprocessing
 import glob
 import os
 
-def init(outer, halton, m_batches, m_error, neutrons):
+def init(outer, major, coil, halton, m_batches, m_error, neutrons):
     number_of_datapoints=halton
-    lower_x=1
-    upper_x=outer-0.01
-    lower_y=1.00001
-    upper_y=outer-0.001
+    lower_x=coil
+    upper_x=coil+outer-0.01
+    lower_y=coil+0.00001
+    upper_y=coil+outer-0.001
 
     points_to_search=[]
     leak=[]
@@ -39,7 +39,7 @@ def init(outer, halton, m_batches, m_error, neutrons):
     pbar = tqdm(total=j)
 
     for i in range(len(points)):
-        leakage, leakage_error = shield(points[i], False, outer, m_batches, m_error, neutrons)
+        leakage, leakage_error = shield(points[i], major, coil, False, outer, m_batches, m_error, neutrons)
         leak.append(leakage)
         leak_err.append(leakage_error)
         pbar.update(1)
